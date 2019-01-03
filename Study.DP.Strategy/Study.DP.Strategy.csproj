@@ -42,11 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Dogs\DogBasic.cs" />
+    <Compile Include="Classes\Dogs\Husky.cs" />
+    <Compile Include="Classes\Dogs\Shepherd.cs" />
+    <Compile Include="Classes\Dogs\ShibaInu.cs" />
+    <Compile Include="Classes\Dogs\UpgradableDog.cs" />
+    <Compile Include="Interfaces\Dogs\Voice\HuskyVoice.cs" />
+    <Compile Include="Interfaces\Dogs\Voice\IVoiceble.cs" />
+    <Compile Include="Interfaces\Dogs\Voice\NormalVoice.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

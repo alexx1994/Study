@@ -1,3 +1,5 @@
+using Study.DP.Strategy.Classes.Dogs;
+using Study.DP.Strategy.Interfaces.Dogs.Voice;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +12,30 @@ namespace Study.DP.Strategy
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            List<DogBasic> dogs = new List<DogBasic>();
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+            dogs.Add(new Husky());
+            dogs.Add(new Shepherd());
+            dogs.Add(new ShibaInu());
+
+            foreach (var dog in dogs)
+            {
+                dog.Display();
+                dog.Run();
+                dog.Voice();
+
+                Console.WriteLine();
+            }
+
+            DogBasic upgradableDog = new UpgradableDog();
+            upgradableDog.Display();
+            upgradableDog.Run();
+            upgradableDog.Voice();
+
+            upgradableDog.SetVoiceBehaviour(new HuskyVoice());
+            upgradableDog.Voice();
+
+            Console.ReadKey();
         }
     }
 }
