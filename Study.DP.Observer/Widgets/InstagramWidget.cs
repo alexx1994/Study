@@ -7,29 +7,18 @@ using System.Threading.Tasks;
 
 namespace Study.DP.Observer.Widgets
 {
-    public class InstagramWidget : IObserver, IWidget
+    public class InstagramWidget : IWidget
     {
         private string _instagram;
-        private ISubject _subject;
-
-        public InstagramWidget(ISubject subject)
-        {
-            _subject = subject;
-            _subject.RegisterObserver(this);
-        }
+        
         public void Display()
         {
             Console.WriteLine("Instagram: {0}", _instagram);
         }
-
-        public void RemoveFromSubject()
+        
+        public void Update(object sender, NewsEventArgs e)
         {
-            _subject.RemoveObserver(this);
-        }
-
-        public void Update(string instagram, string twitter)
-        {
-            _instagram = instagram;
+            _instagram = e.Instagram;
             Display();
         }
     }

@@ -7,22 +7,22 @@ using Study.DP.Observer.Widgets;
 
 namespace Study.DP.Observer.News
 {
-    //public class NewsEventArgs
-    //{
-    //    public NewsEventArgs(string instagram, string twitter)
-    //    {
-    //        Instagram = instagram;
-    //        Twitter = twitter;
-    //    }
+    public class NewsEventArgs
+    {
+        public NewsEventArgs(string instagram, string twitter)
+        {
+            Instagram = instagram;
+            Twitter = twitter;
+        }
 
-    //    public string Instagram { get; private set; }
-    //    public string Twitter { get; private set; }
+        public string Instagram { get; private set; }
+        public string Twitter { get; private set; }
 
-    //}
+    }
 
-    //public delegate void NewsChangedEventHandler(object sender, NewsEventArgs e);
-    
-    public class NewsAggregator : ISubject
+    public delegate void NewsChangedEventHandler(object sender, NewsEventArgs e);
+
+    public class NewsAggregator
     {
         private static Random _random;
 
@@ -31,32 +31,10 @@ namespace Study.DP.Observer.News
         public NewsAggregator()
         {
             _random = new Random();
-
-            _observers = new List<IObserver>();
         }
 
-        //public event NewsChangedEventHandler NewsChanged;
+        public event NewsChangedEventHandler NewsChanged;
 
-        public void NotifyObserver()
-        {
-            string instagram = GetInstagramNews();
-            string twitter = GetTwitterNews();
-
-            foreach (var observer in _observers)
-            {
-                observer.Update(instagram, twitter);
-            }
-        }
-
-        public void RegisterObserver(IObserver observer)
-        {
-            _observers.Add(observer);
-        }
-
-        public void RemoveObserver(IObserver observer)
-        {
-            _observers.Remove(observer);
-        }
 
         public string GetInstagramNews()
         {
@@ -84,7 +62,11 @@ namespace Study.DP.Observer.News
 
         public void NewNewsAvailable()
         {
-            NotifyObserver();
+            string instagram = GetInstagramNews();
+            string twitter = GetTwitterNews();
+
+            if (NewsChanged != null)
+                NewsChanged(this, new NewsEventArgs(instagram, twitter));
         }
     }
 }

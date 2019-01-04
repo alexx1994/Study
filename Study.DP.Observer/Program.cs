@@ -14,15 +14,17 @@ namespace Study.DP.Observer
         {
             var newsAggregator = new NewsAggregator();
 
-            var instagramWidget = new InstagramWidget(newsAggregator);
-            var twitterWidget = new TwitterWidget(newsAggregator);
+            var instagramWidget = new InstagramWidget();
+            var twitterWidget = new TwitterWidget();
+
+            newsAggregator.NewsChanged += new NewsChangedEventHandler(instagramWidget.Update);
+            newsAggregator.NewsChanged += new NewsChangedEventHandler(twitterWidget.Update);
 
             newsAggregator.NewNewsAvailable();
             Console.WriteLine();
 
-            twitterWidget.RemoveFromSubject();
+            newsAggregator.NewsChanged -= new NewsChangedEventHandler(instagramWidget.Update);
             newsAggregator.NewNewsAvailable();
-
 
             Console.ReadLine();
         }
