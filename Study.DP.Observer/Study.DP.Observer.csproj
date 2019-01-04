@@ -42,11 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="News\ISubject.cs" />
+    <Compile Include="News\NewsAggregator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Widgets\InstagramWidget.cs" />
+    <Compile Include="Widgets\IObserver.cs" />
+    <Compile Include="Widgets\IWidget.cs" />
+    <Compile Include="Widgets\TwitterWidget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

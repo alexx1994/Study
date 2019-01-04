@@ -1,3 +1,5 @@
+using Study.DP.Observer.News;
+using Study.DP.Observer.Widgets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +12,19 @@ namespace Study.DP.Observer
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            var newsAggregator = new NewsAggregator();
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+            var instagramWidget = new InstagramWidget(newsAggregator);
+            var twitterWidget = new TwitterWidget(newsAggregator);
+
+            newsAggregator.NewNewsAvailable();
+            Console.WriteLine();
+
+            twitterWidget.RemoveFromSubject();
+            newsAggregator.NewNewsAvailable();
+
+
+            Console.ReadLine();
         }
     }
 }
