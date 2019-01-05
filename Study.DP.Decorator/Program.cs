@@ -1,3 +1,5 @@
+using Study.DP.Decorator.Beverage;
+using Study.DP.Decorator.Decorators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +12,27 @@ namespace Study.DP.Decorator
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            BeverageBase blackTea = new BlackTea();
+            BeverageBase greenTea = new GreenTea();
+            BeverageBase coffee = new Coffee();
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+            Display(blackTea);
+            Display(greenTea);
+            Display(coffee);
+            Console.WriteLine("----------------------");
+
+            BeverageBase americano = new Milk(new Coffee());
+            Display(americano);
+            
+            BeverageBase americanoWithSugar = new Sugar(new Milk(new Coffee()));
+            Display(americanoWithSugar);
+
+            Console.ReadLine();
+        }
+
+        static void Display(BeverageBase beverage)
+        {
+            Console.WriteLine("Description: {0} Price: {1}", beverage.GetDescription(), beverage.GetCost());
         }
     }
 }

@@ -42,11 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Beverage\BeverageBase.cs" />
+    <Compile Include="Beverage\BlackTea.cs" />
+    <Compile Include="Beverage\Coffee.cs" />
+    <Compile Include="Beverage\GreenTea.cs" />
+    <Compile Include="Decorators\BeverageDecoratorBase.cs" />
+    <Compile Include="Decorators\Milk.cs" />
+    <Compile Include="Decorators\Sugar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
