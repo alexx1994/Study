@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Study.DP.Adapter.Superheros
+{
+    public interface ISuperhero
+    {
+        void Shoot();
+        void Fly();
+        void GoTrougWalls();
+    }
+}

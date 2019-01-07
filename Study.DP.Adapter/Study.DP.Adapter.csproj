@@ -49,6 +49,11 @@
     <Compile Include="HomeCats\YardCat.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Superheros\IFly.cs" />
+    <Compile Include="Superheros\IShoot.cs" />
+    <Compile Include="Superheros\ISuperhero.cs" />
+    <Compile Include="Superheros\IWalls.cs" />
+    <Compile Include="Superheros\SuperheroAdapter.cs" />
     <Compile Include="WildCats\IWildCat.cs" />
     <Compile Include="WildCats\Tiger.cs" />
   </ItemGroup>
