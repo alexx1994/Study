@@ -9,6 +9,8 @@ using Ninject;
 using Study.GameStore.Domain.Abstract;
 using Study.GameStore.Domain.Entities;
 using Study.GameStore.Domain.Concrete;
+using Study.GameStore.WebUI.Infrastructure.Abstract;
+using Study.GameStore.WebUI.Infrastructure.Concrete;
 
 namespace Study.GameStore.WebUI.Infrastructure
 {
@@ -44,6 +46,8 @@ namespace Study.GameStore.WebUI.Infrastructure
 
             kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
                 .WithConstructorArgument("settings", emailSettings);
+
+            kernel.Bind<IAuthProvider>().To<FormAuthProvider>();
         }
         
     }
